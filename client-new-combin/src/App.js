@@ -1,25 +1,13 @@
 import Home from "./components/Home";
+import './styles/styles.css';
 
 function App(){
 
-    const generarToken = () => {
-        const token = fetch('http://localhost:8081/auth', {
-            method: 'POST',
-            body: JSON.stringify({
-                username: "sarah",
-                password: "connor"
-            }),
-            headers: {
-                Authorization: 'Bearer [token]'
-            }
-        }).then(value => console.log(value))
-        .catch(err => console.log(err));
-    }
+    localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsIm5hbWUiOiJzYXJhaCIsImFkbWluIjpmYWxzZSwiaWF0IjoxNjM4Mjk3MDAwfQ.48e5VGDsmSmLFThSOSYr2ix7CVXcEroRBoAPtJPn2zc');
+
     return(
     <>
-        <Home/>
-        <br/>
-        <button onClick={generarToken}>Generar token</button>
+    <Home/>
     </>
     )
 }

@@ -33,7 +33,7 @@ server.post('/auth', (req, res, next) => {
     let { username, password } = req.body;
     user.authenticate(username, password).then(data => {
         let token = jwt.sign(data, config.jwt.secret, {
-            expiresIn: '15m'
+            //expiresIn: '24h'
         });
         let {iat, exp} = jwt.decode(token);
         res.send({iat, exp, token});
